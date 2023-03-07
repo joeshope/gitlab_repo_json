@@ -16,3 +16,5 @@ How to use:
 - Run using the above arguments
 
 example: python3 generate_json.py --gitlab_group=GITLAB_GROUP_ID --gitlab_token=GITLAB_API_TOKEN  --org_id=SNYK_ORGANIZATION_ID --integration_id=SNYK_ORGANIZATION_INTEGRATION_ID
+
+Save the import-projects.json file to use with the Snyk API Import Tool (https://github.com/snyk-tech-services/snyk-api-import)
