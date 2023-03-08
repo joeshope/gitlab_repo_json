@@ -22,18 +22,32 @@ headers = {'PRIVATE-TOKEN': f'{gitlab_token}'}
 r = requests.get(url, headers=headers)
 data = r.json()
 
+## Defines json content for file write
+def create_json():
+	all_content = []
+	for key in data:
+		content = dict() 
+
+		target = dict()
+		target['id'] = key['id']
+		target['branch'] = key['default_branch']
+		content['target'] = target
+
+		content['orgId'] = f"{org_id}"
+		content['integrationId'] = f"{integration_id}"
+
+		all_content.append(content)
+	return all_content
+
 ## Defines import file
 fname = 'import-projects.json'
 
 ## Creates file with appropriate content
 with open(fname, 'w') as outfile:
-  outfile.write('{"targets": [')
+  outfile.write('{"targets":')
 
-## Loops through list to add repo information
-for element in data:
-    with open(fname, 'a') as outfile:
-    	json.dump({"target": {"id": element['id'], "branch": element['default_branch']}, "orgId": f"{org_id}", "integrationId": f"{integration_id}"}, outfile)
-    	outfile.write(',')
+with open(fname, 'a') as outfile:
+	json.dump(create_json(), outfile)
 
 ## Closes off file with appropriate JSON
 with open(fname, 'ab') as outfile:
