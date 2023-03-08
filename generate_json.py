@@ -17,7 +17,7 @@ import requests
 import json
 
 ## Gets Gitlab repo data
-url = 'https://gitlab.com/api/v4/groups/'+f'{gitlab_group}'+'/projects?include_subgroups=true&per_page=999'
+url = 'https://gitlab.com/api/v4/groups/'+f'{gitlab_group}'+'/projects?include_subgroups=true&per_page=99999'
 headers = {'PRIVATE-TOKEN': f'{gitlab_token}'}
 r = requests.get(url, headers=headers)
 data = r.json()
