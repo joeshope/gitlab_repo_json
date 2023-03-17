@@ -3,6 +3,8 @@ Creates a JSON in current directory for Step 4 of Snyk API Import Tool. The JSON
 
 REQUIRED:
 
+GITLAB_ULR - This should match your gitlab URL for on-prem deployments or use https://gitlab.com otherwise.
+
 GITLAB_GROUP_ID - This is available in the Gitlab UI or Gitlab API (https://docs.gitlab.com/ee/api/groups.html)
 
 GITLAB_API_TOKEN - You’ll find this option in your user account settings area, in the Access Tokens section. Alternatively, a Group Access Token can be used to grant access to all projects within a GitLab group or subgroup, without contributing to GitLab's licensed user count.
@@ -16,8 +18,10 @@ SNYK_ORGANIZATION_INTEGRATION_ID - You can find this at the bottom of the Gitlab
 
 How to use:
 - Clone repo
+- Navigate into directory
+- Run pip3 install -r requirements.txt
 - Run using the above arguments
 
-example: <pre><code>python3 generate_json.py --gitlab_group=GITLAB_GROUP_ID --gitlab_token=GITLAB_API_TOKEN  --org_id=SNYK_ORGANIZATION_ID --integration_id=SNYK_ORGANIZATION_INTEGRATION_ID</code></pre>
+example: <pre><code>python3 generate_json.py --gitlab_url=https://gitlab.com --gitlab_group=GITLAB_GROUP_ID --gitlab_token=GITLAB_API_TOKEN  --org_id=SNYK_ORGANIZATION_ID --integration_id=SNYK_ORGANIZATION_INTEGRATION_ID</code></pre>
 
 Save the import-projects.json file to use with the Snyk API Import Tool (https://github.com/snyk-tech-services/snyk-api-import)
