@@ -3,7 +3,7 @@ Creates a JSON in current directory for Step 4 of Snyk API Import Tool. The JSON
 
 REQUIRED:
 
-GITLAB_ULR - This should match your gitlab URL for on-prem deployments or use https://gitlab.com otherwise.
+GITLAB_URL - This should match your gitlab URL for on-prem deployments or use https://gitlab.com otherwise.
 
 GITLAB_GROUP_ID - This is available in the Gitlab UI or Gitlab API (https://docs.gitlab.com/ee/api/groups.html)
 
